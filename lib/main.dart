@@ -178,76 +178,78 @@ class _MyHomePageState extends State<MyHomePage> {
         ),),
         backgroundColor: Colors.deepPurpleAccent,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      body: ListView(
         children: <Widget>[
-          SizedBox(height: 30.0,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          Column(
             children: <Widget>[
-              Image.asset(isCross ? "images/cross.png" : "images/circle.png",height: 50.0,width: 50.0,),
-              SizedBox(width: 5.0,),
-              Text("'s Chance", style: TextStyle(fontSize: 30.0,fontWeight: FontWeight.w500),),
-            ],
-          ),
-          Expanded(
-            child: GridView.builder(
-              padding: EdgeInsets.fromLTRB(20.0,20.0,20.0,0),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
-                  childAspectRatio: 1.0,
-                  crossAxisSpacing: 10.0,
-                  mainAxisSpacing: 10.0),
-              itemCount: this.gameState.length,
-              itemBuilder: (context, i) => SizedBox(
-                width: 100.0,
-                height: 100.0,
-                child: MaterialButton(
-                  onPressed: () {
-                    this.playGame(i);
-                  },
-                  child: Image(
-                    image: this.getImage(this.gameState[i]),
+              SizedBox(height: 30.0,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Image.asset(isCross ? "images/cross.png" : "images/circle.png",height: 50.0,width: 50.0,),
+                  SizedBox(width: 5.0,),
+                  Text("'s Chance", style: TextStyle(fontSize: 30.0,fontWeight: FontWeight.w500),),
+                ],
+              ),
+              Expanded(
+                child: GridView.builder(
+                  padding: EdgeInsets.fromLTRB(20.0,20.0,20.0,0),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      childAspectRatio: 1.0,
+                      crossAxisSpacing: 10.0,
+                      mainAxisSpacing: 10.0),
+                  itemCount: this.gameState.length,
+                  itemBuilder: (context, i) => SizedBox(
+                    width: 100.0,
+                    height: 100.0,
+                    child: MaterialButton(
+                      onPressed: () {
+                        this.playGame(i);
+                      },
+                      child: Image(
+                        image: this.getImage(this.gameState[i]),
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.fromLTRB(20.0,0,20,20),
-            child: Text(
-              this.message.toUpperCase(),
-              style: TextStyle(
-                fontSize: 44.0,
-                fontWeight: FontWeight.bold,
+              Container(
+                padding: EdgeInsets.fromLTRB(20.0,0,20,20),
+                child: Text(
+                  this.message.toUpperCase(),
+                  style: TextStyle(
+                    fontSize: 44.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
-            ),
-          ),
-          MaterialButton(
-            color: Colors.deepPurpleAccent,
-            minWidth: 300.0,
-            height: 50.0,
-            child: Text(
-              "Restart Game",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24.0,
+              MaterialButton(
+                color: Colors.deepPurpleAccent,
+                minWidth: 300.0,
+                height: 50.0,
+                child: Text(
+                  "Restart Game",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24.0,
+                  ),
+                ),
+                onPressed: () {
+                  this.resetGame();
+                },
+                shape: ContinuousRectangleBorder(
+                  borderRadius: BorderRadius.circular(50.0),
+                ),
               ),
-            ),
-            onPressed: () {
-              this.resetGame();
-            },
-            shape: ContinuousRectangleBorder(
-              borderRadius: BorderRadius.circular(50.0),
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.all(20.0),
-            child: Text(
-              "Developed by Devansh Baldwa",
-              style: TextStyle(fontSize: 16.0),
-            ),
+              Container(
+                padding: EdgeInsets.all(20.0),
+                child: Text(
+                  "Developed by Devansh Baldwa",
+                  style: TextStyle(fontSize: 16.0),
+                ),
+              )
+            ],
           )
         ],
       ),
