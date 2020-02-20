@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 void main() => runApp(MyApp());
 
@@ -178,11 +179,9 @@ class _MyHomePageState extends State<MyHomePage> {
         ),),
         backgroundColor: Colors.deepPurpleAccent,
       ),
-      body: ListView(
-        children: <Widget>[
-          Column(
+      body:Column(
             children: <Widget>[
-              SizedBox(height: 30.0,),
+              SizedBox(height: 10.0,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -193,7 +192,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Expanded(
                 child: GridView.builder(
-                  padding: EdgeInsets.fromLTRB(20.0,20.0,20.0,0),
+                  padding: EdgeInsets.fromLTRB(20.0,5.0,20.0,0),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
                       childAspectRatio: 1.0,
@@ -215,7 +214,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               Container(
-                padding: EdgeInsets.fromLTRB(20.0,0,20,20),
+                padding: EdgeInsets.fromLTRB(20.0,0,20,10),
                 child: Text(
                   this.message.toUpperCase(),
                   style: TextStyle(
@@ -243,7 +242,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               Container(
-                padding: EdgeInsets.all(20.0),
+                padding: EdgeInsets.fromLTRB(20, 5, 20, 10),
                 child: Text(
                   "Developed by Devansh Baldwa",
                   style: TextStyle(fontSize: 16.0),
@@ -251,8 +250,6 @@ class _MyHomePageState extends State<MyHomePage> {
               )
             ],
           )
-        ],
-      ),
     );
   }
 }
